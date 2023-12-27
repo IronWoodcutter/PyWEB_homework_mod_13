@@ -1,0 +1,32 @@
+{%extends "quotes/base.html"%}
+
+{% block content %}
+<h3>Add Author</h3>
+
+{%if form.errors %}
+<span class="alert alert-danger" role="alert">{{form.non_field_errors}}</span>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    <div class="row mb-3 col-md-6">
+        <label>Author</label>
+        {{form.fullname}}
+    </div>
+    <div class="row mb-3 col-md-6">
+        <label class="form-label">Born date</label>
+        {{form.born_date}}
+    </div>
+    <div class="row mb-3 col-md-6">
+        <label>Born location</label>
+        {{form.born_location}}
+    </div>
+      <div class="row mb-3 col-md-6">
+        <label>Description</label>
+        {{form.description}}
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Add author</button>
+</form>
+{% endblock %}
